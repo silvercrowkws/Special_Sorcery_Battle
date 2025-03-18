@@ -80,6 +80,34 @@ public class GameManager : Singleton<GameManager>
     }
 
     /// <summary>
+    /// 현재 가지고 있는 돈
+    /// </summary>
+    int currentMoney;
+
+    /// <summary>
+    /// 돈 프로퍼티
+    /// </summary>
+    public int Money
+    {
+        get => currentMoney;
+        set
+        {
+            if (currentMoney != value)
+            {
+                //currentMoney = value;
+                currentMoney = Mathf.Clamp(value, 0, 999);
+                Debug.Log($"남은 돈 : {currentMoney}");
+                moneyChange?.Invoke(currentMoney);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 돈이 변경되었음을 알리는 델리게이트(UI 수정용)
+    /// </summary>
+    public Action<int> moneyChange;
+
+    /// <summary>
     /// 턴 매니저
     /// </summary>
     //TurnManager turnManager;
@@ -87,6 +115,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         //SceneManager.sceneLoaded += OnSceneLoaded;
+        currentMoney = 100;
     }
 
     private void OnEnable()

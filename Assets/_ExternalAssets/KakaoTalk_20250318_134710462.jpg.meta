@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: a4c9e6582e8aa64459e049ac7ea8d163
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fire
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 292
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1f0454d53c9764390858f9bc403a9f
+      internalID: 894137018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stone
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 389
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d94792d83c6f5647a682190caee5879
+      internalID: -1453544090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Water
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 194
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0576b78127be0040b531211a1d070f1
+      internalID: 1163794658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fire: 894137018
+      KakaoTalk_20250318_134710462_10: 182514925
+      KakaoTalk_20250318_134710462_11: -548721132
+      KakaoTalk_20250318_134710462_12: -534228440
+      KakaoTalk_20250318_134710462_13: 1591902132
+      KakaoTalk_20250318_134710462_14: 2100095110
+      KakaoTalk_20250318_134710462_15: 1398370967
+      KakaoTalk_20250318_134710462_16: 1275081278
+      KakaoTalk_20250318_134710462_17: 1989510263
+      KakaoTalk_20250318_134710462_18: -1078424546
+      KakaoTalk_20250318_134710462_19: -1003996215
+      KakaoTalk_20250318_134710462_2: -1908337038
+      KakaoTalk_20250318_134710462_20: 1538654562
+      KakaoTalk_20250318_134710462_21: -1292543765
+      KakaoTalk_20250318_134710462_22: -796315841
+      KakaoTalk_20250318_134710462_23: -743527575
+      KakaoTalk_20250318_134710462_24: -1228304782
+      KakaoTalk_20250318_134710462_25: 1922029412
+      KakaoTalk_20250318_134710462_26: 321645724
+      KakaoTalk_20250318_134710462_27: 762054361
+      KakaoTalk_20250318_134710462_28: 1173806742
+      KakaoTalk_20250318_134710462_29: 1177446556
+      KakaoTalk_20250318_134710462_3: -580099239
+      KakaoTalk_20250318_134710462_30: -72926529
+      KakaoTalk_20250318_134710462_31: 313051856
+      KakaoTalk_20250318_134710462_32: -698894068
+      KakaoTalk_20250318_134710462_33: 1001343172
+      KakaoTalk_20250318_134710462_34: -1106494539
+      KakaoTalk_20250318_134710462_35: -1725192265
+      KakaoTalk_20250318_134710462_36: 187597890
+      KakaoTalk_20250318_134710462_37: 1492213812
+      KakaoTalk_20250318_134710462_38: 446024074
+      KakaoTalk_20250318_134710462_39: 1685462176
+      KakaoTalk_20250318_134710462_4: 1433856601
+      KakaoTalk_20250318_134710462_40: 216618069
+      KakaoTalk_20250318_134710462_41: 438314560
+      KakaoTalk_20250318_134710462_42: -803885079
+      KakaoTalk_20250318_134710462_43: -232850202
+      KakaoTalk_20250318_134710462_44: -1933139338
+      KakaoTalk_20250318_134710462_45: 148462875
+      KakaoTalk_20250318_134710462_46: 1691747643
+      KakaoTalk_20250318_134710462_47: 1632559077
+      KakaoTalk_20250318_134710462_48: -1127316414
+      KakaoTalk_20250318_134710462_49: 1638852815
+      KakaoTalk_20250318_134710462_5: 877160937
+      KakaoTalk_20250318_134710462_50: 565677018
+      KakaoTalk_20250318_134710462_51: 455180851
+      KakaoTalk_20250318_134710462_52: -649561296
+      KakaoTalk_20250318_134710462_53: 539173405
+      KakaoTalk_20250318_134710462_54: -1066442316
+      KakaoTalk_20250318_134710462_55: -464175169
+      KakaoTalk_20250318_134710462_56: -1536335337
+      KakaoTalk_20250318_134710462_57: -2102476234
+      KakaoTalk_20250318_134710462_58: -188695121
+      KakaoTalk_20250318_134710462_59: -2087418330
+      KakaoTalk_20250318_134710462_6: -304781351
+      KakaoTalk_20250318_134710462_60: 719636248
+      KakaoTalk_20250318_134710462_61: -350289884
+      KakaoTalk_20250318_134710462_62: -1295893651
+      KakaoTalk_20250318_134710462_63: 211551731
+      KakaoTalk_20250318_134710462_64: 1790513999
+      KakaoTalk_20250318_134710462_65: 1211389761
+      KakaoTalk_20250318_134710462_66: 75454162
+      KakaoTalk_20250318_134710462_67: 218009269
+      KakaoTalk_20250318_134710462_68: -1375012989
+      KakaoTalk_20250318_134710462_69: -2082602193
+      KakaoTalk_20250318_134710462_7: -267831198
+      KakaoTalk_20250318_134710462_70: -2072488417
+      KakaoTalk_20250318_134710462_71: -931895260
+      KakaoTalk_20250318_134710462_72: -481410466
+      KakaoTalk_20250318_134710462_73: 996274474
+      KakaoTalk_20250318_134710462_74: -1194673111
+      KakaoTalk_20250318_134710462_75: -336733997
+      KakaoTalk_20250318_134710462_76: -1402186506
+      KakaoTalk_20250318_134710462_77: -1748604317
+      KakaoTalk_20250318_134710462_78: 1391510257
+      KakaoTalk_20250318_134710462_79: 1716006944
+      KakaoTalk_20250318_134710462_8: 834569308
+      KakaoTalk_20250318_134710462_80: -1144444678
+      KakaoTalk_20250318_134710462_81: 2099845029
+      KakaoTalk_20250318_134710462_83: -935892906
+      KakaoTalk_20250318_134710462_84: -1202945447
+      KakaoTalk_20250318_134710462_85: 1456268694
+      KakaoTalk_20250318_134710462_86: 1710423513
+      KakaoTalk_20250318_134710462_87: -782143975
+      KakaoTalk_20250318_134710462_88: -1519267817
+      KakaoTalk_20250318_134710462_89: -1901218008
+      KakaoTalk_20250318_134710462_9: -1855467009
+      KakaoTalk_20250318_134710462_90: 1616157551
+      KakaoTalk_20250318_134710462_91: 1438930561
+      KakaoTalk_20250318_134710462_92: 36317967
+      KakaoTalk_20250318_134710462_93: 1975872055
+      KakaoTalk_20250318_134710462_94: -18932357
+      KakaoTalk_20250318_134710462_95: 341066866
+      KakaoTalk_20250318_134710462_96: -1039531698
+      KakaoTalk_20250318_134710462_97: 2056519955
+      KakaoTalk_20250318_134710462_98: -1745599436
+      Stone: -1415813616
+      Water: 1045383255
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

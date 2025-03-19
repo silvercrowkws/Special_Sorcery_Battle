@@ -8,6 +8,11 @@ using UnityEngine.UI;
 public class Functionbuttons : MonoBehaviour
 {
     /// <summary>
+    /// SorceryButtons 클래스
+    /// </summary>
+    SorceryButtons sorceryButtons;
+
+    /// <summary>
     /// 현상금 버튼
     /// </summary>
     Button bountyButton;
@@ -106,6 +111,7 @@ public class Functionbuttons : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.Instance;
+        sorceryButtons = FindAnyObjectByType<SorceryButtons>();
 
         imageRect = UIImage.GetComponent<RectTransform>();
 
@@ -193,7 +199,8 @@ public class Functionbuttons : MonoBehaviour
     {
         Debug.Log("주술 생성 버튼 클릭");
 
-        if(gameManager.Money >= sorceryCost)
+        // 소지금이 생성 비용보다 크고, 주술 개수가 최대 25개를 넘지 않으면
+        if(gameManager.Money >= sorceryCost && sorceryButtons.sorceryCount < sorceryButtons.maxSorceryCount)
         {
             gameManager.Money -= sorceryCost;                           // 돈 차감
             sorceryCost++;                                              // 가격++
@@ -304,6 +311,12 @@ public class Functionbuttons : MonoBehaviour
                     }
                     break;
             }
+        }
+        else
+        {
+            Debug.Log($"소지금 : {gameManager.Money}");
+            Debug.Log($"현재 주술 개수 : {sorceryButtons.sorceryCount}");
+            Debug.Log($"최대 주술 개수 : {sorceryButtons.maxSorceryCount}");
         }
     }
 

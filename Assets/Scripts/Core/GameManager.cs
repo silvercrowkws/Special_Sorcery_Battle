@@ -108,6 +108,34 @@ public class GameManager : Singleton<GameManager>
     public Action<int> moneyChange;
 
     /// <summary>
+    /// 현재 가지고 있는 소울
+    /// </summary>
+    int currentSoul;
+
+    /// <summary>
+    /// 소울 프로퍼티
+    /// </summary>
+    public int Soul
+    {
+        get => currentSoul;
+        set
+        {
+            if (currentSoul != value)
+            {
+                //currentSoul = value;
+                currentSoul = Mathf.Clamp(value, 0, 999);
+                Debug.Log($"남은 소울 : {currentSoul}");
+                soulChange?.Invoke(currentSoul);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 소울이 변경되었음을 알리는 델리게이트(UI 수정용)
+    /// </summary>
+    public Action<int> soulChange;
+
+    /// <summary>
     /// 턴 매니저
     /// </summary>
     //TurnManager turnManager;

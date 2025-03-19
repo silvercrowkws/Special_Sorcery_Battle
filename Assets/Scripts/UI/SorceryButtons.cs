@@ -43,6 +43,60 @@ public class SorceryButtons : MonoBehaviour
     public int[] fireSorcery;
     public int[] waterSorcery;
 
+    /*public int[] StoneSorcery
+    {
+        get => stoneSorcery;
+        set
+        {
+            if(stoneSorcery != value)
+            {
+                stoneSorcery = value;
+                UpdateSorceryCount();
+            }
+        }
+    }
+
+    public int[] FireSorcery
+    {
+        get => fireSorcery;
+        set
+        {
+            if (fireSorcery != value)
+            {
+                fireSorcery = value;
+                UpdateSorceryCount();
+            }
+        }
+    }
+
+    public int[] WaterSorcery
+    {
+        get => waterSorcery;
+        set
+        {
+            if (waterSorcery != value)
+            {
+                waterSorcery = value;
+                UpdateSorceryCount();
+            }
+        }
+    }*/
+
+    /// <summary>
+    /// 주술 개수
+    /// </summary>
+    public int sorceryCount;
+
+    /// <summary>
+    /// 주술 개수가 변경되었을 때 알리는 델리게이트
+    /// </summary>
+    public Action<int> onSorceryCountChange;
+
+    /// <summary>
+    /// 최대 주술 개수
+    /// </summary>
+    public int maxSorceryCount = 25;
+
     /// <summary>
     /// 주술 버튼 배열의 크기
     /// </summary>
@@ -136,6 +190,8 @@ public class SorceryButtons : MonoBehaviour
                 waterSorceryButtonsText[sorceryGrade].text = waterSorcery[sorceryGrade].ToString();
                 break;
         }
+
+        UpdateSorceryCount();   // 주술 개수 갱신
     }
 
     /// <summary>
@@ -171,6 +227,8 @@ public class SorceryButtons : MonoBehaviour
                         waterSorceryButtonsText[index + 1].text = waterSorcery[index + 1].ToString();
                         break;
                 }
+
+                UpdateSorceryCount(); // 주술 개수 갱신
             }
         }
     }
@@ -204,6 +262,8 @@ public class SorceryButtons : MonoBehaviour
                         waterSorceryButtonsText[index + 1].text = waterSorcery[index + 1].ToString();
                         break;
                 }
+
+                UpdateSorceryCount(); // 주술 개수 갱신
             }
         }
     }
@@ -237,7 +297,36 @@ public class SorceryButtons : MonoBehaviour
                         waterSorceryButtonsText[index + 1].text = waterSorcery[index + 1].ToString();
                         break;
                 }
+
+                UpdateSorceryCount(); // 주술 개수 갱신
             }
         }
+    }
+
+    /// <summary>
+    /// sorceryCount를 갱신하는 함수
+    /// </summary>
+    private void UpdateSorceryCount()
+    {
+        sorceryCount = GetArraySum(stoneSorcery) + GetArraySum(fireSorcery) + GetArraySum(waterSorcery);
+        onSorceryCountChange?.Invoke(sorceryCount);
+    }
+
+    /// <summary>
+    /// 배열의 합을 구하는 헬퍼 함수
+    /// </summary>
+    /// <param name="array"></param>
+    /// <returns></returns>
+    private int GetArraySum(int[] array)
+    {
+        int sum = 0;
+        if (array != null)
+        {
+            foreach (int value in array)
+            {
+                sum += value;
+            }
+        }
+        return sum;
     }
 }

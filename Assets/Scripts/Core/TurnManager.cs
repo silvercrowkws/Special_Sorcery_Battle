@@ -115,8 +115,8 @@ public class TurnManager : Singleton<TurnManager>       // 나중에 리스타�
             turnState = TurnProcessState.Start;     // 턴 시작 상태
 
             //Debug.Log("onTurnStart 델리게이트 보냄");
-            onTurnStart?.Invoke(turnNumber);        // 턴이 시작되었음을 알림(ActivePlayer 클래스에)
-            StartCoroutine(TurnEndCoroutine());
+            onTurnStart?.Invoke(turnNumber);        // 턴이 시작되었음을 알림(InfoUI 클래스에)
+            //StartCoroutine(TurnEndCoroutine());
         }
     }
 
@@ -179,9 +179,11 @@ public class TurnManager : Singleton<TurnManager>       // 나중에 리스타�
         OnTurnEnd();
     }
 
-    IEnumerator TurnEndCoroutine()
+    /* InfoUI에서 실행
+     IEnumerator TurnEndCoroutine()
     {
         yield return new WaitForSeconds(15);
         OnTurnEnd2();
     }
+    */
 }

@@ -165,7 +165,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,7 +186,7 @@ TextureImporter:
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,6 +194,90 @@ TextureImporter:
       bones: []
       spriteID: d0576b78127be0040b531211a1d070f1
       internalID: 1163794658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wave
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 475
+        width: 149
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d25765b69704d44aacdb4919e2471e
+      internalID: -1776383880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Money
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 490
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62584bc7209f087479c4faab3f84eee1
+      internalID: 327728156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 490
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3bfd3d77d5a764b85dfef5f3209c1c
+      internalID: -868985155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sorceryCount
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 490
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1345d39b4a006b47bd18eaf633f0274
+      internalID: 897968687
       vertices: []
       indices: 
       edges: []
@@ -306,8 +390,12 @@ TextureImporter:
       KakaoTalk_20250318_134710462_96: -1039531698
       KakaoTalk_20250318_134710462_97: 2056519955
       KakaoTalk_20250318_134710462_98: -1745599436
+      Money: 327728156
+      Soul: -868985155
       Stone: -1415813616
       Water: 1045383255
+      sorceryCount: 897968687
+      wave: -1776383880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -56,4 +56,12 @@ public class Stone_05 : RecycleObject
         // 최종 위치에 정확히 도달
         transform.position = targetPosition;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Debug.Log("적 과 충돌");
+        }
+    }
 }

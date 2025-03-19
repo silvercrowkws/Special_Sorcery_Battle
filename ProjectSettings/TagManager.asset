@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player1
+  - Enemy
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -47,4 +49,7 @@ TagManager:
     locked: 0
   - name: Attack
     uniqueID: 2835713739
+    locked: 0
+  - name: Enemy
+    uniqueID: 3920869715
     locked: 0

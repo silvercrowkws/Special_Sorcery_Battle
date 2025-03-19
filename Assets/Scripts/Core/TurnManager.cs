@@ -92,31 +92,16 @@ public class TurnManager : Singleton<TurnManager>       // 나중에 리스타�
 
         onInitialize2Start?.Invoke();
         //OnTurnStart();                          // 턴 시작
+        StartCoroutine(TurnStartCoroutine());
 
         //Invoke("FindActivePlayer", 1f); // 1초 후에 `FindActivePlayer` 메서드를 호출
     }
 
-    /*void FindActivePlayer()
+    IEnumerator TurnStartCoroutine()
     {
-        // 여기서 씬에 존재하는 ActivePlayer를 찾는 부분 필요할 듯
-        GameObject activeObject = GameObject.FindGameObjectWithTag("ActivePlayer");
-        if (activeObject != null)
-        {
-            activePlayer = activeObject.GetComponent<ActivePlayer>();
-            if (activePlayer != null)
-            {
-                Debug.Log("activePlayer 있음");
-            }
-            else
-            {
-                Debug.Log("activePlayer 없음");
-            }
-        }
-        else
-        {
-            Debug.Log("activeObject 가 null인데?");
-        }
-    }*/
+        yield return new WaitForSeconds(3);
+        OnTurnStart();
+    }
 
     /// <summary>
     /// 턴 시작 처리용 함수
@@ -131,6 +116,7 @@ public class TurnManager : Singleton<TurnManager>       // 나중에 리스타�
 
             //Debug.Log("onTurnStart 델리게이트 보냄");
             onTurnStart?.Invoke(turnNumber);        // 턴이 시작되었음을 알림(ActivePlayer 클래스에)
+            StartCoroutine(TurnEndCoroutine());
         }
     }
 
@@ -152,7 +138,7 @@ public class TurnManager : Singleton<TurnManager>       // 나중에 리스타�
             Debug.Log($"{turnNumber}턴 종료");
 
             isEndProcess = false;   // 종료 처리가 끝났다고 표시
-            //OnTurnStart();          // 다음 턴 시작
+            OnTurnStart();          // 다음 턴 시작
         }
     }
 
@@ -191,5 +177,11 @@ public class TurnManager : Singleton<TurnManager>       // 나중에 리스타�
     public void OnTurnEnd2()
     {
         OnTurnEnd();
+    }
+
+    IEnumerator TurnEndCoroutine()
+    {
+        yield return new WaitForSeconds(15);
+        OnTurnEnd2();
     }
 }

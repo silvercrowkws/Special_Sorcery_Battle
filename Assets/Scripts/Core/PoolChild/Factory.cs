@@ -58,7 +58,7 @@ public class Factory : Singleton<Factory>
         stone_01 = GetComponentInChildren<Stone_01_Pool>();
         if (stone_01 != null)
         {
-            Debug.Log("Stone_01_Pool 초기화");
+            //Debug.Log("Stone_01_Pool 초기화");
             stone_01.Initialize();
         }
         else
@@ -70,7 +70,7 @@ public class Factory : Singleton<Factory>
         stone_02 = GetComponentInChildren<Stone_02_Pool>();
         if (stone_02 != null)
         {
-            Debug.Log("Stone_02_Pool 초기화");
+            //Debug.Log("Stone_02_Pool 초기화");
             stone_02.Initialize();
         }
         else
@@ -82,7 +82,7 @@ public class Factory : Singleton<Factory>
         stone_03 = GetComponentInChildren<Stone_03_Pool>();
         if (stone_03 != null)
         {
-            Debug.Log("Stone_03_Pool 초기화");
+            //Debug.Log("Stone_03_Pool 초기화");
             stone_03.Initialize();
         }
         else
@@ -94,7 +94,7 @@ public class Factory : Singleton<Factory>
         stone_04 = GetComponentInChildren<Stone_04_Pool>();
         if (stone_04 != null)
         {
-            Debug.Log("Stone_04_Pool 초기화");
+            //Debug.Log("Stone_04_Pool 초기화");
             stone_04.Initialize();
         }
         else
@@ -106,7 +106,7 @@ public class Factory : Singleton<Factory>
         stone_05 = GetComponentInChildren<Stone_05_Pool>();
         if (stone_05 != null)
         {
-            Debug.Log("Stone_05_Pool 초기화");
+            //Debug.Log("Stone_05_Pool 초기화");
             stone_05.Initialize();
         }
         else
@@ -118,7 +118,7 @@ public class Factory : Singleton<Factory>
         fire_01 = GetComponentInChildren<Fire_01_Pool>();
         if (fire_01 != null)
         {
-            Debug.Log("Fire_01_Pool 초기화");
+            //Debug.Log("Fire_01_Pool 초기화");
             fire_01.Initialize();
         }
         else
@@ -130,7 +130,7 @@ public class Factory : Singleton<Factory>
         fire_02 = GetComponentInChildren<Fire_02_Pool>();
         if (fire_02 != null)
         {
-            Debug.Log("Fire_02_Pool 초기화");
+            //Debug.Log("Fire_02_Pool 초기화");
             fire_02.Initialize();
         }
         else
@@ -142,7 +142,7 @@ public class Factory : Singleton<Factory>
         fire_03 = GetComponentInChildren<Fire_03_Pool>();
         if (fire_03 != null)
         {
-            Debug.Log("Fire_03_Pool 초기화");
+            //Debug.Log("Fire_03_Pool 초기화");
             fire_03.Initialize();
         }
         else
@@ -154,7 +154,7 @@ public class Factory : Singleton<Factory>
         fire_04 = GetComponentInChildren<Fire_04_Pool>();
         if (fire_04 != null)
         {
-            Debug.Log("Fire_04_Pool 초기화");
+            //Debug.Log("Fire_04_Pool 초기화");
             fire_04.Initialize();
         }
         else
@@ -166,7 +166,7 @@ public class Factory : Singleton<Factory>
         fire_05 = GetComponentInChildren<Fire_05_Pool>();
         if (fire_05 != null)
         {
-            Debug.Log("Fire_05_Pool 초기화");
+            //Debug.Log("Fire_05_Pool 초기화");
             fire_05.Initialize();
         }
         else
@@ -178,7 +178,7 @@ public class Factory : Singleton<Factory>
         water_01 = GetComponentInChildren<Water_01_Pool>();
         if (water_01 != null)
         {
-            Debug.Log("Water_01_Pool 초기화");
+            //Debug.Log("Water_01_Pool 초기화");
             water_01.Initialize();
         }
         else
@@ -190,7 +190,7 @@ public class Factory : Singleton<Factory>
         water_02 = GetComponentInChildren<Water_02_Pool>();
         if (water_02 != null)
         {
-            Debug.Log("Water_02_Pool 초기화");
+            //Debug.Log("Water_02_Pool 초기화");
             water_02.Initialize();
         }
         else
@@ -202,7 +202,7 @@ public class Factory : Singleton<Factory>
         water_03 = GetComponentInChildren<Water_03_Pool>();
         if (water_03 != null)
         {
-            Debug.Log("Water_03_Pool 초기화");
+            //Debug.Log("Water_03_Pool 초기화");
             water_03.Initialize();
         }
         else
@@ -214,7 +214,7 @@ public class Factory : Singleton<Factory>
         water_04 = GetComponentInChildren<Water_04_Pool>();
         if (water_04 != null)
         {
-            Debug.Log("Water_04_Pool 초기화");
+            //Debug.Log("Water_04_Pool 초기화");
             water_04.Initialize();
         }
         else
@@ -226,7 +226,7 @@ public class Factory : Singleton<Factory>
         water_05 = GetComponentInChildren<Water_05_Pool>();
         if (water_05 != null)
         {
-            Debug.Log("Water_05_Pool 초기화");
+            //Debug.Log("Water_05_Pool 초기화");
             water_05.Initialize();
         }
         else

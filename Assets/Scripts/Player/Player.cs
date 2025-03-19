@@ -146,10 +146,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator AttackCoroutine()
-    {
-        yield return new WaitForSeconds(0.5f);
-    }
 
     /// <summary>
     /// 각 속성 별로 공격 시키는 함수(팩토리로 생성)
@@ -158,7 +154,7 @@ public class Player : MonoBehaviour
     /// <param name="index"></param>
     private void ExecuteAttack(int element, int index)
     {
-        /*switch (element)
+        switch (element)
         {
             // 바위
             case 0:
@@ -231,6 +227,6 @@ public class Player : MonoBehaviour
                         break;
                 }
                 break;
-        }*/
+        }
     }
 }

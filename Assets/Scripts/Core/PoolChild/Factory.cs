@@ -253,6 +253,47 @@ public class Factory : Singleton<Factory>
             case PoolObjectType.Fire_02:                            // 불 공격 2
                 result = fire_02.GetObject(position, euler).gameObject;
                 break;
+            case PoolObjectType.Fire_03:                            // 불 공격 3
+                result = fire_03.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Fire_04:                            // 불 공격 4
+                result = fire_04.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Fire_05:                            // 불 공격 5
+                result = fire_05.GetObject(position, euler).gameObject;
+                break;
+
+            case PoolObjectType.Stone_01:                            // 바위 공격 1
+                result = stone_01.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Stone_02:                            // 바위 공격 2
+                result = stone_02.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Stone_03:                            // 바위 공격 3
+                result = stone_03.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Stone_04:                            // 바위 공격 4
+                result = stone_04.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Stone_05:                            // 바위 공격 5
+                result = stone_05.GetObject(position, euler).gameObject;
+                break;
+
+            case PoolObjectType.Water_01:                            // 물 공격 1
+                result = water_01.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Water_02:                            // 물 공격 2
+                result = water_02.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Water_03:                            // 물 공격 3
+                result = water_03.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Water_04:                            // 물 공격 4
+                result = water_04.GetObject(position, euler).gameObject;
+                break;
+            case PoolObjectType.Water_05:                            // 물 공격 5
+                result = water_05.GetObject(position, euler).gameObject;
+                break;
         }
 
         return result;
@@ -298,5 +339,269 @@ public class Factory : Singleton<Factory>
     public Fire_02 GetFire_02(Vector3 position, float angle = 0.0f)
     {
         return fire_02.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 불 공격 3 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Fire_03 GetFire_03()
+    {
+        return fire_03.GetObject();
+    }
+
+    /// <summary>
+    /// 불 공격 3 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Fire_03 GetFire_03(Vector3 position, float angle = 0.0f)
+    {
+        return fire_03.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 불 공격 4 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Fire_04 GetFire_04()
+    {
+        return fire_04.GetObject();
+    }
+
+    /// <summary>
+    /// 불 공격 4 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Fire_04 GetFire_04(Vector3 position, float angle = 0.0f)
+    {
+        return fire_04.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 불 공격 5 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Fire_05 GetFire_05()
+    {
+        return fire_05.GetObject();
+    }
+
+    /// <summary>
+    /// 불 공격 5 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Fire_05 GetFire_05(Vector3 position, float angle = 0.0f)
+    {
+        return fire_05.GetObject(position, angle * Vector3.forward);
+    }
+
+    // 바위 --------------------------------------------------------------------------------------------------------------------------
+
+    /// <summary>
+    /// 바위 공격 1 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Stone_01 GetStone_01()
+    {
+        return stone_01.GetObject();
+    }
+
+    /// <summary>
+    /// 바위 공격 1 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Stone_01 GetStone_01(Vector3 position, float angle = 0.0f)
+    {
+        return stone_01.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 바위 공격 2 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Stone_02 GetStone_02()
+    {
+        return stone_02.GetObject();
+    }
+
+    /// <summary>
+    /// 바위 공격 2 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Stone_02 GetStone_02(Vector3 position, float angle = 0.0f)
+    {
+        return stone_02.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 바위 공격 3 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Stone_03 GetStone_03()
+    {
+        return stone_03.GetObject();
+    }
+
+    /// <summary>
+    /// 바위 공격 3 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Stone_03 GetStone_03(Vector3 position, float angle = 0.0f)
+    {
+        return stone_03.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 바위 공격 4 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Stone_04 GetStone_04()
+    {
+        return stone_04.GetObject();
+    }
+
+    /// <summary>
+    /// 바위 공격 4 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Stone_04 GetStone_04(Vector3 position, float angle = 0.0f)
+    {
+        return stone_04.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 바위 공격 5 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Stone_05 GetStone_05()
+    {
+        return stone_05.GetObject();
+    }
+
+    /// <summary>
+    /// 바위 공격 5 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Stone_05 GetStone_05(Vector3 position, float angle = 0.0f)
+    {
+        return stone_05.GetObject(position, angle * Vector3.forward);
+    }
+
+    // 물 --------------------------------------------------------------------------------------------------------------------------
+
+    /// <summary>
+    /// 물 공격 1 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Water_01 GetWater_01()
+    {
+        return water_01.GetObject();
+    }
+
+    /// <summary>
+    /// 물 공격 1 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Water_01 GetWater_01(Vector3 position, float angle = 0.0f)
+    {
+        return water_01.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 물 공격 2 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Water_02 GetWater_02()
+    {
+        return water_02.GetObject();
+    }
+
+    /// <summary>
+    /// 물 공격 2 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Water_02 GetWater_02(Vector3 position, float angle = 0.0f)
+    {
+        return water_02.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 물 공격 3 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Water_03 GetWater_03()
+    {
+        return water_03.GetObject();
+    }
+
+    /// <summary>
+    /// 물 공격 3 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Water_03 GetWater_03(Vector3 position, float angle = 0.0f)
+    {
+        return water_03.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 물 공격 4 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Water_04 GetWater_04()
+    {
+        return water_04.GetObject();
+    }
+
+    /// <summary>
+    /// 물 공격 4 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Water_04 GetWater_04(Vector3 position, float angle = 0.0f)
+    {
+        return water_04.GetObject(position, angle * Vector3.forward);
+    }
+
+    /// <summary>
+    /// 물 공격 5 하나 가져오는 함수
+    /// </summary>
+    /// <returns></returns>
+    public Water_05 GetWater_05()
+    {
+        return water_05.GetObject();
+    }
+
+    /// <summary>
+    /// 물 공격 5 하나 가져와서 특정 위치에 배치하는 함수
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="angle"></param>
+    /// <returns></returns>
+    public Water_05 GetWater_05(Vector3 position, float angle = 0.0f)
+    {
+        return water_05.GetObject(position, angle * Vector3.forward);
     }
 }

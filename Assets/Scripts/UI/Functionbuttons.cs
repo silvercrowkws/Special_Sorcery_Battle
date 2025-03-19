@@ -20,7 +20,7 @@ public class Functionbuttons : MonoBehaviour
     /// <summary>
     /// 주술 생성 버튼(주술 생성 버튼은 어떤 등급의 주술이 생성되었다는 것만 알림 => 관리 및 속성 결정은 SorceryButtons 클래스 쪽에서)
     /// </summary>
-    Button sorceryButton;
+    Button sorceryCreateButton;
 
     /// <summary>
     /// 강화 버튼
@@ -66,19 +66,9 @@ public class Functionbuttons : MonoBehaviour
     Vector2 downVector = new Vector2(0, 0);
 
     /// <summary>
-    /// 현상금 버튼이 활성화 되어있는지 확인하는 bool 변수
-    /// </summary>
-    bool isbounty = false;
-
-    /// <summary>
-    /// 신수 버튼이 활성화 되어있는지 확인하는 bool 변수
-    /// </summary>
-    bool isanimal = false;
-
-    /// <summary>
     /// 마지막으로 눌린 버튼을 추적(UIImage가 올라가있는지)
     /// </summary>
-    private enum LastButton { None, Bounty, Animal, upgradeButton, miningButton }
+    private enum LastButton { None, Bounty, Animal, Upgrade, Mining }
     private LastButton lastButton = LastButton.None;
 
     /// <summary>
@@ -88,7 +78,7 @@ public class Functionbuttons : MonoBehaviour
 
     /// <summary>
     /// 어떤 등급의 주술이 생성되었는지 알리는 델리게이트
-    /// 0 : 노말, 1 : 희귀, 2 : 영웅, 3 : 전설, 4 : 선조, 5 : 천벌
+    /// 0 : 일반, 1 : 희귀, 2 : 영웅, 3 : 전설, 4 : 선조, 5 : 천벌
     /// </summary>
     public Action<int> onSorceryNumber;
 
@@ -100,8 +90,8 @@ public class Functionbuttons : MonoBehaviour
         animalButton = transform.GetChild(1).GetComponent<Button>();
         animalButton.onClick.AddListener(OnAnimalButton);
 
-        sorceryButton = transform.GetChild(2).GetComponent<Button>();
-        sorceryButton.onClick.AddListener(OnSorceryButton);
+        sorceryCreateButton = transform.GetChild(2).GetComponent<Button>();
+        sorceryCreateButton.onClick.AddListener(OnSorceryButton);
 
         upgradeButton = transform.GetChild(3).GetComponent<Button>();
         upgradeButton.onClick.AddListener(OnUpgradeButton);
@@ -109,7 +99,7 @@ public class Functionbuttons : MonoBehaviour
         miningButton = transform.GetChild(4).GetComponent<Button>();
         miningButton.onClick.AddListener(OnMiningButton);
 
-        sorceryText = sorceryButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        sorceryText = sorceryCreateButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         sorceryCost = 20;
     }
 
@@ -145,11 +135,13 @@ public class Functionbuttons : MonoBehaviour
             ButtonStateImage.gameObject.SetActive(true);
             ButtonStateImage.transform.GetChild(0).gameObject.SetActive(true);      // 0번째 자식 Bountys 활성화
             ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
+            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
+            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mining 비활성화
         }
         else
         {
-            ButtonStateImage.gameObject.SetActive(false);
             ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);      // 0번째 자식 Bountys 비활성화
+            ButtonStateImage.gameObject.SetActive(false);
         }
     }
 
@@ -174,13 +166,15 @@ public class Functionbuttons : MonoBehaviour
         if (imageRect.anchoredPosition == upVector)
         {
             ButtonStateImage.gameObject.SetActive(true);
-            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(true);      // 0번째 자식 Animal 활성화
+            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(true);      // 1번째 자식 Animal 활성화
             ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
+            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
+            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mininig 비활성화
         }
         else
         {
-            ButtonStateImage.gameObject.SetActive(false);
             ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);      // 0번째 자식 Animal 비활성화
+            ButtonStateImage.gameObject.SetActive(false);
         }
         // 타일맵에 SetTile 하는 방식으로 하자
     }
@@ -318,7 +312,32 @@ public class Functionbuttons : MonoBehaviour
     /// </summary>
     private void OnUpgradeButton()
     {
+        if (lastButton == LastButton.Upgrade)
+        {
+            // 강화 버튼을 연속으로 누르면 내려감
+            imageRect.anchoredPosition = downVector;
+            lastButton = LastButton.None;
+        }
+        else
+        {
+            // 다른 버튼을 누른 후, 강화 버튼을 누르면 올라감
+            imageRect.anchoredPosition = upVector;
+            lastButton = LastButton.Upgrade;
+        }
 
+        if (imageRect.anchoredPosition == upVector)
+        {
+            ButtonStateImage.gameObject.SetActive(true);
+            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(true);      // 0번째 자식 Upgrade 활성화
+            ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
+            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
+            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mining 비활성화
+        }
+        else
+        {
+            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);      // 0번째 자식 Upgrade 비활성화
+            ButtonStateImage.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -326,6 +345,31 @@ public class Functionbuttons : MonoBehaviour
     /// </summary>
     private void OnMiningButton()
     {
+        if (lastButton == LastButton.Mining)
+        {
+            // 채굴 버튼을 연속으로 누르면 내려감
+            imageRect.anchoredPosition = downVector;
+            lastButton = LastButton.None;
+        }
+        else
+        {
+            // 다른 버튼을 누른 후, 채굴 버튼을 누르면 올라감
+            imageRect.anchoredPosition = upVector;
+            lastButton = LastButton.Mining;
+        }
 
+        if (imageRect.anchoredPosition == upVector)
+        {
+            ButtonStateImage.gameObject.SetActive(true);
+            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(true);      // 0번째 자식 Mining 활성화
+            ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
+            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
+            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
+        }
+        else
+        {
+            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);      // 0번째 자식 채굴 비활성화
+            ButtonStateImage.gameObject.SetActive(false);
+        }
     }
 }

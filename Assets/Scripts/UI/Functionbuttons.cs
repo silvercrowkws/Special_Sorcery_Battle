@@ -354,7 +354,7 @@ public class Functionbuttons : MonoBehaviour
     }
 
     /// <summary>
-    /// 채굴 버튼
+    /// 채굴 버튼 
     /// </summary>
     private void OnMiningButton()
     {

@@ -102,7 +102,7 @@ public class ButtonStateImage : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("주술이 모자르다");
+                    Debug.Log("주술이 모자르다"); 
                 }
                 break;
             case 2:

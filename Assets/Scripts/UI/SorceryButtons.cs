@@ -70,6 +70,7 @@ public class SorceryButtons : MonoBehaviour
         for (int i = 0; i < sorceryButtonsCount; i++)
         {
             Button button = transform.GetChild(i).GetComponent<Button>();
+            int index = i;      // 로컬 변수로 저장
 
             // 5로 나눈 몫을 기준으로
             // 0 : 0 1 2 3 4
@@ -78,22 +79,22 @@ public class SorceryButtons : MonoBehaviour
             switch (i / 5)
             {
                 case 0:     // i 값이 0, 1, 2, 3, 4인 경우 (바위 주술)
-                    stoneSorceryButtons[i] = button;
-                    stoneSorceryButtons[i].onClick.AddListener(() => StoneSynthesis(i));
-                    stoneSorceryButtonsText[i] = button.GetComponentInChildren<TextMeshProUGUI>();
-                    stoneSorceryButtonsText[i].text = "0";
+                    stoneSorceryButtons[index] = button;
+                    stoneSorceryButtons[index].onClick.AddListener(() => StoneSynthesis(index));
+                    stoneSorceryButtonsText[index] = button.GetComponentInChildren<TextMeshProUGUI>();
+                    stoneSorceryButtonsText[index].text = "0";
                     break;
                 case 1:     // i 값이 5, 6, 7, 8, 9인 경우 (불 주술)
-                    fireSorceryButtons[i - 5] = button;         // 인덱스를 0부터 시작하게 하기 위해서 5를 뺌
-                    fireSorceryButtons[i - 5].onClick.AddListener(() => FireSynthesis(i - 5));
-                    fireSorceryButtonsText[i - 5] = button.GetComponentInChildren<TextMeshProUGUI>();
-                    fireSorceryButtonsText[i - 5].text = "0";
+                    fireSorceryButtons[index - 5] = button;         // 인덱스를 0부터 시작하게 하기 위해서 5를 뺌
+                    fireSorceryButtons[index - 5].onClick.AddListener(() => FireSynthesis(index - 5));
+                    fireSorceryButtonsText[index - 5] = button.GetComponentInChildren<TextMeshProUGUI>();
+                    fireSorceryButtonsText[index - 5].text = "0";
                     break;
                 case 2:     // i 값이 10, 11, 12, 13, 14인 경우 (물 주술)
-                    waterSorceryButtons[i - 10] = button;       // 인덱스를 0부터 시작하게 하기 위해서 10을 뺌
-                    waterSorceryButtons[i - 10].onClick.AddListener(() => WaterSynthesis(i - 10));
-                    waterSorceryButtonsText[i - 10] = button.GetComponentInChildren<TextMeshProUGUI>();
-                    waterSorceryButtonsText[i - 10].text = "0";
+                    waterSorceryButtons[index - 10] = button;       // 인덱스를 0부터 시작하게 하기 위해서 10을 뺌
+                    waterSorceryButtons[index - 10].onClick.AddListener(() => WaterSynthesis(index - 10));
+                    waterSorceryButtonsText[index - 10] = button.GetComponentInChildren<TextMeshProUGUI>();
+                    waterSorceryButtonsText[index - 10].text = "0";
                     break;
             }
         }

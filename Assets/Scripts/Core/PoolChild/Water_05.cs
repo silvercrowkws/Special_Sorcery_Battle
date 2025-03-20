@@ -21,6 +21,8 @@ public class Water_05 : RecycleObject
 
     Vector3 startPosition;
 
+    int damage = 50;
+
 
     protected override void OnEnable()
     {
@@ -61,7 +63,19 @@ public class Water_05 : RecycleObject
     {
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("적 과 충돌");
+            Debug.Log("적과 충돌");
+
+            // 충돌한 객체에서 EnemyBase 또는 그 자식 클래스를 가져오기
+            EnemyBase enemyBase = collision.GetComponent<EnemyBase>();
+            if (enemyBase != null)
+            {
+                // 데미지 주기
+                enemyBase.TakeDamage(damage);
+                //Debug.Log("적에게 데미지 주기");
+            }
+
+            // Fire_01 오브젝트 비활성화
+            gameObject.SetActive(false);
         }
     }
 }

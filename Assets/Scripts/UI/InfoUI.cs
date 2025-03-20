@@ -35,6 +35,16 @@ public class InfoUI : MonoBehaviour
     TextMeshProUGUI soulText;
     TextMeshProUGUI sorceryCountText;
 
+    /// <summary>
+    /// 현상금까지 남은 시간을 알리는 텍스트 매쉬 프로
+    /// </summary>
+    TextMeshProUGUI bountyCountText;
+
+    /// <summary>
+    /// 현상금이 가능한지 알리는 bool 변수(true : 가능, false : 불가능)
+    /// </summary>
+    public bool bounty = false;
+
 
     private void Awake()
     {
@@ -53,9 +63,13 @@ public class InfoUI : MonoBehaviour
         soulText = child.GetChild(1).GetChild(1).GetComponent <TextMeshProUGUI>();
         sorceryCountText = child.GetChild(2).GetChild(1).GetComponent <TextMeshProUGUI>();
 
-        moneyText.text = "100";
+        moneyText.text = "999";
         soulText.text = "0";
         sorceryCountText.text = "0";
+
+        child = transform.GetChild(2);
+        bountyCountText = child.GetChild(1).GetComponent<TextMeshProUGUI>();
+        bountyCountText.text = "00:59";
     }
 
     private void Start()
@@ -69,6 +83,8 @@ public class InfoUI : MonoBehaviour
 
         sorceryButtons = FindAnyObjectByType<SorceryButtons>();
         sorceryButtons.onSorceryCountChange += OnSorceryCountChange;
+
+        StartCoroutine(BountyCountDown());
     }
 
     /// <summary>
@@ -82,6 +98,10 @@ public class InfoUI : MonoBehaviour
         StartCoroutine(CountDown());
     }
 
+    /// <summary>
+    /// 카운트 다운 코루틴
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CountDown()
     {
         float timeLeft = 15f;                               // 15초로 초기화
@@ -130,5 +150,37 @@ public class InfoUI : MonoBehaviour
     private void OnSorceryCountChange(int currentSorecy)
     {
         sorceryCountText.text = currentSorecy.ToString();
+    }
+
+    /// <summary>
+    /// 현상금 카운트 다운 코루틴
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator BountyCountDown()
+    {
+        float timeLeft = 60f;                               // 60초로 초기화
+        bounty = false;
+        while (timeLeft > 0)
+        {
+            int seconds = Mathf.FloorToInt(timeLeft);       // 초 계산
+
+            // 텍스트 UI 업데이트 (문자열 보간 사용, 분은 항상 00으로 고정)
+            bountyCountText.text = $"00:{seconds:00}";        // 초는 2자리로 표시
+
+            // 1초 대기
+            yield return new WaitForSeconds(1f);
+
+            // 1초 감소
+            timeLeft -= 1f;
+        }
+
+        // 카운트다운이 끝나면 "00:00"으로 설정
+        bountyCountText.text = "00:00";
+        bounty = true;
+    }
+
+    public void ObBountyFC()
+    {
+        StartCoroutine(BountyCountDown());
     }
 }

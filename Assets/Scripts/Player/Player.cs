@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Factory factory;
-    
+    protected Factory factory;
+
     /// <summary>
     /// 애니메이터
     /// </summary>
-    Animator animator;
+    protected Animator animator;
 
     /*public GameObject stone_1;      // 근접 공격
     public GameObject stone_2;      // 근접 공격
@@ -32,28 +32,28 @@ public class Player : MonoBehaviour
     /// <summary>
     /// SorceryButtons 클래스
     /// </summary>
-    SorceryButtons sorceryButtons;
+    protected SorceryButtons sorceryButtons;
 
     /// <summary>
     /// 각 공격의 쿨다운 시간을 저장할 변수
     /// </summary>
-    private float[] stoneCooldownTimers = new float[5];     // stoneSorcery[0]~[4]에 대한 쿨다운 타이머
-    private float[] fireCooldownTimers = new float[5];      // fireSorcery[0]~[4]에 대한 쿨다운 타이머
-    private float[] waterCooldownTimers = new float[5];     // waterSorcery[0]~[4]에 대한 쿨다운 타이머
+    protected float[] stoneCooldownTimers = new float[5];     // stoneSorcery[0]~[4]에 대한 쿨다운 타이머
+    protected float[] fireCooldownTimers = new float[5];      // fireSorcery[0]~[4]에 대한 쿨다운 타이머
+    protected float[] waterCooldownTimers = new float[5];     // waterSorcery[0]~[4]에 대한 쿨다운 타이머
 
     /// <summary>
     /// 각 공격의 쿨다운 시간 (초 단위)
     /// </summary>
     public float[] cooldownDurations = new float[5] { 1.0f, 1.5f, 2.0f, 2.5f, 3.0f };
 
-    private void Awake()
+    protected virtual void Awake()
     {
         factory = Factory.Instance;
         animator = GetComponent<Animator>();
         animator.SetTrigger("Attack");
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         sorceryButtons = FindAnyObjectByType<SorceryButtons>();
 
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         // 바위 공격
         // 각 stoneSorcery 배열을 확인하고, 쿨다운이 끝난 공격이 있다면 실행

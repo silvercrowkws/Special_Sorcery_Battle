@@ -143,7 +143,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         //SceneManager.sceneLoaded += OnSceneLoaded;
-        currentMoney = 1000;
+        currentMoney = 999;
     }
 
     private void OnEnable()

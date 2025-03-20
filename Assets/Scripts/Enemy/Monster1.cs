@@ -6,7 +6,7 @@ public class Monster1 : EnemyBase
 {
     protected override void Start()
     {
-        moveSpeed = 5;
+        moveSpeed = 1;
         waitTime = 0;
         currentHp = 50;
         maxHP = currentHp;

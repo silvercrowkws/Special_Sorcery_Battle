@@ -60,7 +60,12 @@ public class Functionbuttons : MonoBehaviour
     /// <summary>
     /// 특정한 버튼이 눌러졌을 때 보일 UI
     /// </summary>
-    public Image ButtonStateImage;
+    public Image ButtonStateImageGameObject;
+
+    /// <summary>
+    /// 특정한 버튼이 눌러졌을 때 보일 UI 클래스
+    /// </summary>
+    ButtonStateImage buttonStateImageClass;
 
     /// <summary>
     /// UIImage의 RectTransform
@@ -75,11 +80,6 @@ public class Functionbuttons : MonoBehaviour
     /// </summary>
     private enum LastButton { None, Bounty, Animal, Upgrade, Mining }
     private LastButton lastButton = LastButton.None;
-
-    /// <summary>
-    /// 강화된 정도
-    /// </summary>
-    public int sorceryUpgrade = 0;
 
     /// <summary>
     /// 어떤 등급의 주술이 생성되었는지 알리는 델리게이트
@@ -115,7 +115,8 @@ public class Functionbuttons : MonoBehaviour
 
         imageRect = UIImage.GetComponent<RectTransform>();
 
-        ButtonStateImage.gameObject.SetActive(false);
+        buttonStateImageClass = FindAnyObjectByType<ButtonStateImage>();
+        ButtonStateImageGameObject.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -138,16 +139,16 @@ public class Functionbuttons : MonoBehaviour
 
         if(imageRect.anchoredPosition == upVector)
         {
-            ButtonStateImage.gameObject.SetActive(true);
-            ButtonStateImage.transform.GetChild(0).gameObject.SetActive(true);      // 0번째 자식 Bountys 활성화
-            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
-            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
-            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mining 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(true);
+            ButtonStateImageGameObject.transform.GetChild(0).gameObject.SetActive(true);      // 0번째 자식 Bountys 활성화
+            ButtonStateImageGameObject.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
+            ButtonStateImageGameObject.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
+            ButtonStateImageGameObject.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mining 비활성화
         }
         else
         {
-            ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);      // 0번째 자식 Bountys 비활성화
-            ButtonStateImage.gameObject.SetActive(false);
+            ButtonStateImageGameObject.transform.GetChild(0).gameObject.SetActive(false);      // 0번째 자식 Bountys 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(false);
         }
     }
 
@@ -171,16 +172,16 @@ public class Functionbuttons : MonoBehaviour
 
         if (imageRect.anchoredPosition == upVector)
         {
-            ButtonStateImage.gameObject.SetActive(true);
-            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(true);      // 1번째 자식 Animal 활성화
-            ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
-            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
-            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mininig 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(true);
+            ButtonStateImageGameObject.transform.GetChild(1).gameObject.SetActive(true);      // 1번째 자식 Animal 활성화
+            ButtonStateImageGameObject.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
+            ButtonStateImageGameObject.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
+            ButtonStateImageGameObject.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mininig 비활성화
         }
         else
         {
-            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);      // 0번째 자식 Animal 비활성화
-            ButtonStateImage.gameObject.SetActive(false);
+            ButtonStateImageGameObject.transform.GetChild(1).gameObject.SetActive(false);      // 0번째 자식 Animal 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(false);
         }
         // 타일맵에 SetTile 하는 방식으로 하자
     }
@@ -209,7 +210,7 @@ public class Functionbuttons : MonoBehaviour
             float randomValue = UnityEngine.Random.Range(0f, 100f);     // 난수 생성
 
             // 주술 생성 부분(강화된 정도에 따라)
-            switch (sorceryUpgrade)
+            switch (buttonStateImageClass.sorceryUpgrade)
             {
                 // 기본 확률
                 case 0:
@@ -340,16 +341,16 @@ public class Functionbuttons : MonoBehaviour
 
         if (imageRect.anchoredPosition == upVector)
         {
-            ButtonStateImage.gameObject.SetActive(true);
-            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(true);      // 0번째 자식 Upgrade 활성화
-            ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
-            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
-            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mining 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(true);
+            ButtonStateImageGameObject.transform.GetChild(2).gameObject.SetActive(true);      // 0번째 자식 Upgrade 활성화
+            ButtonStateImageGameObject.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
+            ButtonStateImageGameObject.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
+            ButtonStateImageGameObject.transform.GetChild(3).gameObject.SetActive(false);     // 3번째 자식 Mining 비활성화
         }
         else
         {
-            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);      // 0번째 자식 Upgrade 비활성화
-            ButtonStateImage.gameObject.SetActive(false);
+            ButtonStateImageGameObject.transform.GetChild(2).gameObject.SetActive(false);      // 0번째 자식 Upgrade 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(false);
         }
     }
 
@@ -373,16 +374,16 @@ public class Functionbuttons : MonoBehaviour
 
         if (imageRect.anchoredPosition == upVector)
         {
-            ButtonStateImage.gameObject.SetActive(true);
-            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(true);      // 0번째 자식 Mining 활성화
-            ButtonStateImage.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
-            ButtonStateImage.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
-            ButtonStateImage.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(true);
+            ButtonStateImageGameObject.transform.GetChild(3).gameObject.SetActive(true);      // 0번째 자식 Mining 활성화
+            ButtonStateImageGameObject.transform.GetChild(0).gameObject.SetActive(false);     // 0번째 자식 Bountys 비활성화
+            ButtonStateImageGameObject.transform.GetChild(1).gameObject.SetActive(false);     // 1번째 자식 Animal 비활성화
+            ButtonStateImageGameObject.transform.GetChild(2).gameObject.SetActive(false);     // 2번째 자식 Upgrade 비활성화
         }
         else
         {
-            ButtonStateImage.transform.GetChild(3).gameObject.SetActive(false);      // 0번째 자식 채굴 비활성화
-            ButtonStateImage.gameObject.SetActive(false);
+            ButtonStateImageGameObject.transform.GetChild(3).gameObject.SetActive(false);      // 0번째 자식 채굴 비활성화
+            ButtonStateImageGameObject.gameObject.SetActive(false);
         }
     }
 }

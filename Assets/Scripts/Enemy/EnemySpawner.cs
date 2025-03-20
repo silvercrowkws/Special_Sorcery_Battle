@@ -28,6 +28,13 @@ public class EnemySpawner : MonoBehaviour
     public BossMonster1 bossMonster1;
     public BossMonster2 bossMonster2;
 
+    // 현상금 몬스터 프리팹
+    public Bounty_01 bounty_01;
+    public Bounty_02 bounty_02;
+    public Bounty_03 bounty_03;
+    public Bounty_04 bounty_04;
+    public Bounty_05 bounty_05;
+
     /// <summary>
     /// 생성된 몬스터가 쌓일 장소
     /// </summary>
@@ -77,6 +84,42 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /// <summary>
+    /// 현상금 몬스터를 스폰시키는 함수
+    /// </summary>
+    /// <param name="bountyIndex">현상금 번호</param>
+    public void BountyEnemySpawn(int bountyIndex)
+    {
+        switch(bountyIndex)
+        {
+            case 0:
+                Bounty_01 bounty1 = Instantiate(bounty_01, transform.position, Quaternion.identity);
+                bounty1.name = $"Bounty_01";
+                bounty1.transform.parent = monsterRepository.transform;
+                break;
+            case 1:
+                Bounty_02 bounty2 = Instantiate(bounty_02, transform.position, Quaternion.identity);
+                bounty2.name = $"Bounty_02";
+                bounty2.transform.parent = monsterRepository.transform;
+                break;
+            case 2:
+                Bounty_03 bounty3 = Instantiate(bounty_03, transform.position, Quaternion.identity);
+                bounty3.name = $"Bounty_03";
+                bounty3.transform.parent = monsterRepository.transform;
+                break;
+            case 3:
+                Bounty_04 bounty4 = Instantiate(bounty_04, transform.position, Quaternion.identity);
+                bounty4.name = $"Bounty_04";
+                bounty4.transform.parent = monsterRepository.transform;
+                break;
+            case 4:
+                Bounty_05 bounty5 = Instantiate(bounty_05, transform.position, Quaternion.identity);
+                bounty5.name = $"Bounty_05";
+                bounty5.transform.parent = monsterRepository.transform;
+                break;
+        }
+    }
+
+    /// <summary>
     /// 몬스터를 스폰시키는 함수
     /// </summary>
     void SpawnerEnemy()
@@ -94,7 +137,7 @@ public class EnemySpawner : MonoBehaviour
                 if (cycle == 0)          // 1사이클이면
                 {
                     // 몬스터1 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
                     m1.transform.parent = monsterRepository.transform;
@@ -103,7 +146,7 @@ public class EnemySpawner : MonoBehaviour
                 else if (cycle == 1)     // 2사이클이면
                 {
                     // 몬스터2 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
                     m2.transform.parent = monsterRepository.transform;
@@ -115,7 +158,7 @@ public class EnemySpawner : MonoBehaviour
                 if (cycle == 0)          // 1사이클이면
                 {
                     // 몬스터1 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
                     m1.transform.parent = monsterRepository.transform;
@@ -124,7 +167,7 @@ public class EnemySpawner : MonoBehaviour
                 else if (cycle == 1)     // 2사이클이면
                 {
                     // 몬스터2 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
                     m2.transform.parent = monsterRepository.transform;
@@ -136,7 +179,7 @@ public class EnemySpawner : MonoBehaviour
                 if (cycle == 0)          // 1사이클이면
                 {
                     // 몬스터1 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
                     m1.transform.parent = monsterRepository.transform;
@@ -145,7 +188,7 @@ public class EnemySpawner : MonoBehaviour
                 else if (cycle == 1)     // 2사이클이면
                 {
                     // 몬스터2 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
                     m2.transform.parent = monsterRepository.transform;
@@ -156,7 +199,7 @@ public class EnemySpawner : MonoBehaviour
                 if (cycle == 0)          // 1사이클이면
                 {
                     // 몬스터1 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
                     m1.transform.parent = monsterRepository.transform;
@@ -165,7 +208,7 @@ public class EnemySpawner : MonoBehaviour
                 else if (cycle == 1)     // 2사이클이면
                 {
                     // 몬스터2 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
                     m2.transform.parent = monsterRepository.transform;
@@ -176,7 +219,7 @@ public class EnemySpawner : MonoBehaviour
                 if (cycle == 0)          // 1사이클이면
                 {
                     // 몬스터1 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
                     m1.transform.parent = monsterRepository.transform;
@@ -185,7 +228,7 @@ public class EnemySpawner : MonoBehaviour
                 else if (cycle == 1)     // 2사이클이면
                 {
                     // 몬스터2 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
                     m2.transform.parent = monsterRepository.transform;
@@ -196,7 +239,7 @@ public class EnemySpawner : MonoBehaviour
                 if (cycle == 0)          // 1사이클이면
                 {
                     // 몬스터1 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
                     m1.transform.parent = monsterRepository.transform;
@@ -205,7 +248,7 @@ public class EnemySpawner : MonoBehaviour
                 else if (cycle == 1)     // 2사이클이면
                 {
                     // 몬스터2 소환
-                    spawnDelay = 0.2f;
+                    spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
                     m2.transform.parent = monsterRepository.transform;

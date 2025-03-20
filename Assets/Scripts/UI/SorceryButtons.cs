@@ -43,6 +43,11 @@ public class SorceryButtons : MonoBehaviour
     public int[] fireSorcery;
     public int[] waterSorcery;
 
+    /// <summary>
+    /// 각 버튼의 캔버스그룹
+    /// </summary>
+    CanvasGroup[] canvasGroup;
+
     /*public int[] StoneSorcery
     {
         get => stoneSorcery;
@@ -119,6 +124,7 @@ public class SorceryButtons : MonoBehaviour
         stoneSorceryButtonsText = new TextMeshProUGUI[5];
         fireSorceryButtonsText = new TextMeshProUGUI[5];
         waterSorceryButtonsText = new TextMeshProUGUI[5];
+        canvasGroup = new CanvasGroup[15];
 
         // 버튼을 할당하는 반복문
         for (int i = 0; i < sorceryButtonsCount; i++)
@@ -151,6 +157,8 @@ public class SorceryButtons : MonoBehaviour
                     waterSorceryButtonsText[index - 10].text = "0";
                     break;
             }
+
+            canvasGroup[i] = button.GetComponent<CanvasGroup>();
         }
     }
 
@@ -158,6 +166,45 @@ public class SorceryButtons : MonoBehaviour
     {
         functionbuttons = FindAnyObjectByType<Functionbuttons>();
         functionbuttons.onSorceryNumber += OnSorceryNumber;
+    }
+
+    private void Update()
+    {
+        for(int i = 0; i < stoneSorceryButtons.Length; i++)
+        {
+            if (stoneSorcery[i] > 0)
+            {
+                canvasGroup[i].alpha = 1;
+            }
+            else
+            {
+                canvasGroup[i].alpha = 0.25f;
+            }
+        }
+
+        for(int i = 5; i < fireSorceryButtons.Length + 5; i++)
+        {
+            if (fireSorcery[i - 5] > 0)
+            {
+                canvasGroup[i].alpha = 1;
+            }
+            else
+            {
+                canvasGroup[i].alpha = 0.25f;
+            }
+        }
+
+        for(int i = 10; i < waterSorceryButtons.Length + 10; i++)
+        {
+            if (waterSorcery[i - 10] > 0)
+            {
+                canvasGroup[i].alpha = 1;
+            }
+            else
+            {
+                canvasGroup[i].alpha = 0.25f;
+            }
+        }
     }
 
     /// <summary>
@@ -306,7 +353,7 @@ public class SorceryButtons : MonoBehaviour
     /// <summary>
     /// sorceryCount를 갱신하는 함수
     /// </summary>
-    private void UpdateSorceryCount()
+    public void UpdateSorceryCount()
     {
         sorceryCount = GetArraySum(stoneSorcery) + GetArraySum(fireSorcery) + GetArraySum(waterSorcery);
         onSorceryCountChange?.Invoke(sorceryCount);

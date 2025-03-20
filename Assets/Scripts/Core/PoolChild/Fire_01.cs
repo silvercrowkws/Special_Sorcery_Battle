@@ -21,7 +21,7 @@ public class Fire_01 : RecycleObject
 
     Vector3 startPosition;
 
-    int damage = 30;
+    int damage = 20;
 
 
     protected override void OnEnable()
@@ -71,7 +71,7 @@ public class Fire_01 : RecycleObject
             {
                 // 데미지 주기
                 enemyBase.TakeDamage(damage);
-                Debug.Log("적에게 데미지 주기");
+                //Debug.Log("적에게 데미지 주기");
             }
 
             // Fire_01 오브젝트 비활성화

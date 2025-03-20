@@ -6,11 +6,11 @@ public class Monster2 : EnemyBase
 {
     protected override void Start()
     {
-        moveSpeed = 5;
+        moveSpeed = 1;
         waitTime = 0;
-        currentHp = 50;
+        currentHp = 75;
         maxHP = currentHp;
-        dieMoney = 20;
+        dieMoney = 30;
         base.Start();
     }
 }

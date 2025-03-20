@@ -36,6 +36,11 @@ public class EnemyBase : MonoBehaviour
     protected int dieMoney = 1;
 
     /// <summary>
+    /// 몬스터가 죽었을 때 주는 소울
+    /// </summary>
+    protected int dieSoul = 0;
+
+    /// <summary>
     /// 최대 체력
     /// </summary>
     protected int maxHP = 100;
@@ -64,8 +69,9 @@ public class EnemyBase : MonoBehaviour
                 currentHp = Mathf.Clamp(value, 0, maxHP);
                 if (currentHp < 1)
                 {
-                    currentHp = 0;                     // 몬스터의 hp가 0이 된다면
+                    currentHp = 0;                      // 몬스터의 hp가 0이 된다면
                     gameManager.Money += dieMoney;      // 돈 증가
+                    gameManager.Soul += dieSoul;        // 소울 증가
                     
                     //attackBase.attackList.Remove(this);
                     Destroy(gameObject);        // 게임 오브젝트 파괴

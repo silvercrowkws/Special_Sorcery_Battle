@@ -112,7 +112,7 @@ public class AnotherPlayer_1 : Player
 
     protected override void Start()
     {
-        currentMoney = 100;
+        currentMoney = 500;
         GameObject spawner = GameObject.FindGameObjectWithTag("EnemySpawner_1");
         enemySpawner = spawner.GetComponent<EnemySpawner>();
 

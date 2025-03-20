@@ -2,12 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-public class AnotherPlayer : Player
+public class AnotherPlayer_2 : Player
 {
+    Factory2 factory2;
+
     public int[] stoneSorcery;
     public int[] fireSorcery;
     public int[] waterSorcery;
+
+    public Tilemap animalTileMap;
+
+    public TileBase animal_1_Tile;
+    public TileBase animal_2_Tile;
+    public TileBase animal_3_Tile;
+
+    List<Vector3Int> animalSpawnPositions;
 
     /// <summary>
     /// 주술 개수
@@ -73,29 +84,56 @@ public class AnotherPlayer : Player
     /// </summary>
     public int sorceryUpgrade = 0;
 
+    /// <summary>
+    /// 현상금이 가능한지 알리는 bool 변수(true : 가능, false : 불가능)
+    /// </summary>
+    public bool bounty = false;
+
+    EnemySpawner enemySpawner;
+
     protected override void Awake()
     {
+        factory2 = Factory2.Instance;
         stoneSorcery = new int[5];
         fireSorcery = new int[5];
         waterSorcery = new int[5];
         sorceryCost = 20;
+
+        animalSpawnPositions = new List<Vector3Int>
+        {
+            new Vector3Int(0, 2, 0),
+            new Vector3Int(0, 0, 0),
+            new Vector3Int(0, -2, 0)
+        };
+
         base.Awake();
     }
 
     protected override void Start()
     {
         currentMoney = 100;
+        GameObject spawner = GameObject.FindGameObjectWithTag("EnemySpawner_2");
+        enemySpawner = spawner.GetComponent<EnemySpawner>();
+
+        StartCoroutine(BountyCountDown());
         base.Start();
     }
 
     protected override void Update()
     {
-        Debug.Log(this.gameObject.transform.position);
         // 현재 소지금이 주술 생성비용보다 많으면
         if(Money >= sorceryCost)
         {
             OnSorceryButton();
         }
+
+        AutoAnimalInstantiate();        // 신수 소환 가능하면 소환
+
+        AutoMining();                   // 채굴 가능하면 채굴
+
+        AutoBountyInstantiate();        // 현상금이 가능하면 현상금
+
+        AutoUpgrade();                  // 강화 가능하면 강화
 
         // 바위 공격
         // 각 stoneSorcery 배열을 확인하고, 쿨다운이 끝난 공격이 있다면 실행
@@ -491,19 +529,19 @@ public class AnotherPlayer : Player
                 switch (index)
                 {
                     case 0:
-                        factory.GetStone_01(this.gameObject.transform.position);
+                        factory2.GetStone_01(this.gameObject.transform.position);
                         break;
                     case 1:
-                        factory.GetStone_02(this.gameObject.transform.position);
+                        factory2.GetStone_02(this.gameObject.transform.position);
                         break;
                     case 2:
-                        factory.GetStone_03(this.gameObject.transform.position);
+                        factory2.GetStone_03(this.gameObject.transform.position);
                         break;
                     case 3:
-                        factory.GetStone_04(this.gameObject.transform.position);
+                        factory2.GetStone_04(this.gameObject.transform.position);
                         break;
                     case 4:
-                        factory.GetStone_05(this.gameObject.transform.position);
+                        factory2.GetStone_05(this.gameObject.transform.position);
                         break;
                     default:
                         break;
@@ -515,19 +553,19 @@ public class AnotherPlayer : Player
                 switch (index)
                 {
                     case 0:
-                        factory.GetFire_01(this.gameObject.transform.position);
+                        factory2.GetFire_01(this.gameObject.transform.position);
                         break;
                     case 1:
-                        factory.GetFire_02(this.gameObject.transform.position);
+                        factory2.GetFire_02(this.gameObject.transform.position);
                         break;
                     case 2:
-                        factory.GetFire_03(this.gameObject.transform.position);
+                        factory2.GetFire_03(this.gameObject.transform.position);
                         break;
                     case 3:
-                        factory.GetFire_04(this.gameObject.transform.position);
+                        factory2.GetFire_04(this.gameObject.transform.position);
                         break;
                     case 4:
-                        factory.GetFire_05(this.gameObject.transform.position);
+                        factory2.GetFire_05(this.gameObject.transform.position);
                         break;
                     default:
                         break;
@@ -539,24 +577,147 @@ public class AnotherPlayer : Player
                 switch (index)
                 {
                     case 0:
-                        factory.GetWater_01(this.gameObject.transform.position);
+                        factory2.GetWater_01(this.gameObject.transform.position);
                         break;
                     case 1:
-                        factory.GetWater_02(this.gameObject.transform.position);
+                        factory2.GetWater_02(this.gameObject.transform.position);
                         break;
                     case 2:
-                        factory.GetWater_03(this.gameObject.transform.position);
+                        factory2.GetWater_03(this.gameObject.transform.position);
                         break;
                     case 3:
-                        factory.GetWater_04(this.gameObject.transform.position);
+                        factory2.GetWater_04(this.gameObject.transform.position);
                         break;
                     case 4:
-                        factory.GetWater_05(this.gameObject.transform.position);
+                        factory2.GetWater_05(this.gameObject.transform.position);
                         break;
                     default:
                         break;
                 }
                 break;
+        }
+    }
+
+    bool isAnimal_1 = false;
+    bool isAnimal_2 = false;
+    bool isAnimal_3 = false;
+
+    /// <summary>
+    /// 신수를 소환하는 함수
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    private void AutoAnimalInstantiate()
+    {
+        // 일반 주술이 3종류 다 있으면
+        if (!isAnimal_1)
+        {
+            if (stoneSorcery[0] > 0 && fireSorcery[0] > 0 && waterSorcery[0] > 0)
+            {
+                animalTileMap.SetTile(animalSpawnPositions[0], animal_1_Tile);
+                animalSpawnPositions.RemoveAt(0);
+                isAnimal_1 = true;
+            }
+        }
+
+        // 희귀 주술이 3종류 다 있으면
+        if (!isAnimal_2)
+        {
+            if (stoneSorcery[1] > 0 && fireSorcery[1] > 0 && waterSorcery[1] > 0)
+            {
+                animalTileMap.SetTile(animalSpawnPositions[0], animal_2_Tile);
+                animalSpawnPositions.RemoveAt(0);
+                isAnimal_2 = true;
+            }
+        }
+
+        // 영웅 주술이 3종류 다 있으면
+        if (!isAnimal_1)
+        {
+            if (stoneSorcery[2] > 0 && fireSorcery[2] > 0 && waterSorcery[2] > 0)
+            {
+                animalTileMap.SetTile(animalSpawnPositions[0], animal_3_Tile);
+                animalSpawnPositions.RemoveAt(0);
+                isAnimal_3 = true;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 채굴 함수
+    /// </summary>
+    /// <param name="index"></param>
+    private void AutoMining()
+    {
+        int random = UnityEngine.Random.Range(0, 3);
+
+        // 전설 등급만 자동으로 되도록
+        if (Soul > 2)
+        {
+            Soul -= 2;
+
+            switch (random)
+            {
+                // 바위 주술 채굴
+                case 0:
+                    sorceryButtons.stoneSorcery[2]++;
+                    break;
+                // 불 주술 채굴
+                case 1:
+                    sorceryButtons.fireSorcery[2]++;
+                    break;
+                // 물 주술 채굴
+                case 2:
+                    sorceryButtons.waterSorcery[2]++;
+                    break;
+            }
+            sorceryButtons.UpdateSorceryCount();        // 주술 갱신 함수
+        }
+    }
+
+    /// <summary>
+    /// 현상금을 스폰하는 함수
+    /// </summary>
+    private void AutoBountyInstantiate()
+    {
+        if (bounty)
+        {
+            enemySpawner.BountyEnemySpawn(0);
+            StartCoroutine(BountyCountDown());
+        }
+    }
+
+    /// <summary>
+    /// 현상금 카운트 다운 코루틴
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator BountyCountDown()
+    {
+        float timeLeft = 60f;                               // 60초로 초기화
+        bounty = false;
+        while (timeLeft > 0)
+        {
+            int seconds = Mathf.FloorToInt(timeLeft);       // 초 계산
+
+            // 1초 대기
+            yield return new WaitForSeconds(1f);
+
+            // 1초 감소
+            timeLeft -= 1f;
+        }
+        bounty = true;
+    }
+
+    /// <summary>
+    /// 소환 확률, 주술, 신수 등을 강화하는 함수
+    /// </summary>
+    private void AutoUpgrade()
+    {
+        // 소환 확률만 강화
+        if (Money > 74 && sorceryUpgrade < 2)
+        {
+            Money -= 75;
+            sorceryUpgrade++;
         }
     }
 }

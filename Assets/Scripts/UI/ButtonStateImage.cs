@@ -94,7 +94,8 @@ public class ButtonStateImage : MonoBehaviour
         gameManager = GameManager.Instance;
         sorceryButtons = FindAnyObjectByType<SorceryButtons>();
         infoUI = FindAnyObjectByType<InfoUI>();
-        enemySpawner = FindAnyObjectByType<EnemySpawner>();
+        GameObject spawner = GameObject.FindGameObjectWithTag("EnemySpawner");
+        enemySpawner = spawner.GetComponent<EnemySpawner>();
     }
 
     /// <summary>

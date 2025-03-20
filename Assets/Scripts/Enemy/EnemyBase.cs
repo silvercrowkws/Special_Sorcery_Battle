@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
@@ -101,19 +102,46 @@ public class EnemyBase : MonoBehaviour
     /// </summary>
     static int playerArriveMonster = 0;
 
+    /// <summary>
+    /// 현재 오브젝트의 최상위 부모(EnemySpawner)
+    /// </summary>
+    Transform rootParent;
+
+    /// <summary>
+    /// 최상위 부모의 0번째 자식(웨이포인트0)
+    /// </summary>
+    Transform firstChild;
+
+    /// <summary>
+    /// 최상위 부모의 1번째 자식(웨이포인트1)
+    /// </summary>
+    Transform secondChild;
+
+    bool first = true;
+
     protected virtual void Start()
     {
         gameManager = GameManager.Instance;
 
-        enemySpawner = FindAnyObjectByType<EnemySpawner>();
+        // 현재 오브젝트의 최상위 부모를 찾음
+        rootParent = transform.root;
 
-        waypointCount = enemySpawner.transform.childCount;      // enemySpawner의 자식 개수
+        // 최상위 부모의 0번째 자식
+        firstChild = rootParent.GetChild(0);
+
+        // 최상위 부모의 1번째 자식
+        secondChild = rootParent.GetChild(1);
+
+        //enemySpawner = FindAnyObjectByType<EnemySpawner>();
+
+        //waypointCount = enemySpawner.transform.childCount;      // enemySpawner의 자식 개수
+        waypointCount = 2;      // enemySpawner의 자식 개수
 
         waypoints = new Transform[waypointCount];
 
         for (int i = 0; i < waypointCount; i++)
         {
-            waypoints[i] = enemySpawner.transform.GetChild(i).transform;
+            waypoints[i] = rootParent.GetChild(i).transform;
         }
 
         // 처음 웨이포인트로 이동 시작
@@ -122,12 +150,45 @@ public class EnemyBase : MonoBehaviour
             StartCoroutine(MoveToNextWaypoint());
         }
 
+        /*for (int i = 0; i < waypointCount; i++)
+        {
+            waypoints[i] = enemySpawner.transform.GetChild(i).transform;
+        }*/
+
         turnManager = FindAnyObjectByType<TurnManager>();
+        first = false;
 
         //attackBase = FindAnyObjectByType<AttackBase>();
 
         //monsterDieCount = 0;
         //playerArriveMonster = 0;
+    }
+
+    protected void OnEnable()
+    {
+        if (!first)
+        {
+            // 현재 오브젝트의 최상위 부모를 찾음
+            rootParent = transform.root;
+
+            // 최상위 부모의 0번째 자식
+            firstChild = rootParent.GetChild(0);
+
+            // 최상위 부모의 1번째 자식
+            secondChild = rootParent.GetChild(1);
+
+            for (int i = 0; i < waypointCount; i++)
+            {
+                waypoints[i] = rootParent.GetChild(i).transform;
+            }
+
+            // 처음 웨이포인트로 이동 시작
+            if (waypoints.Length > 0)
+            {
+                StartCoroutine(MoveToNextWaypoint());
+            }
+        }
+
     }
 
     /// <summary>

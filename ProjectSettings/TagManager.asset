@@ -7,6 +7,10 @@ TagManager:
   - Player1
   - Enemy
   - Attack
+  - EnemySpawner
+  - EnemySpawner_1
+  - EnemySpawner_2
+  - EnemySpawner_3
   layers:
   - Default
   - TransparentFX

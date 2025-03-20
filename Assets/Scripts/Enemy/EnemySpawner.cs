@@ -94,27 +94,27 @@ public class EnemySpawner : MonoBehaviour
             case 0:
                 Bounty_01 bounty1 = Instantiate(bounty_01, transform.position, Quaternion.identity);
                 bounty1.name = $"Bounty_01";
-                bounty1.transform.parent = monsterRepository.transform;
+                bounty1.transform.parent = transform;
                 break;
             case 1:
                 Bounty_02 bounty2 = Instantiate(bounty_02, transform.position, Quaternion.identity);
                 bounty2.name = $"Bounty_02";
-                bounty2.transform.parent = monsterRepository.transform;
+                bounty2.transform.parent = transform;
                 break;
             case 2:
                 Bounty_03 bounty3 = Instantiate(bounty_03, transform.position, Quaternion.identity);
                 bounty3.name = $"Bounty_03";
-                bounty3.transform.parent = monsterRepository.transform;
+                bounty3.transform.parent = transform;
                 break;
             case 3:
                 Bounty_04 bounty4 = Instantiate(bounty_04, transform.position, Quaternion.identity);
                 bounty4.name = $"Bounty_04";
-                bounty4.transform.parent = monsterRepository.transform;
+                bounty4.transform.parent = transform;
                 break;
             case 4:
                 Bounty_05 bounty5 = Instantiate(bounty_05, transform.position, Quaternion.identity);
                 bounty5.name = $"Bounty_05";
-                bounty5.transform.parent = monsterRepository.transform;
+                bounty5.transform.parent = transform;
                 break;
         }
     }
@@ -140,7 +140,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
-                    m1.transform.parent = monsterRepository.transform;
+                    m1.transform.parent = transform;
                     monsterCount++;
                 }
                 else if (cycle == 1)     // 2사이클이면
@@ -149,7 +149,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
-                    m2.transform.parent = monsterRepository.transform;
+                    m2.transform.parent = transform;
                     monsterCount++;
                 }
                 break;
@@ -161,7 +161,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
-                    m1.transform.parent = monsterRepository.transform;
+                    m1.transform.parent = transform;
                     monsterCount++;
                 }
                 else if (cycle == 1)     // 2사이클이면
@@ -170,7 +170,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
-                    m2.transform.parent = monsterRepository.transform;
+                    m2.transform.parent = transform;
                     monsterCount++;
                 }
                 break;
@@ -182,7 +182,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
-                    m1.transform.parent = monsterRepository.transform;
+                    m1.transform.parent = transform;
                     monsterCount++;
                 }
                 else if (cycle == 1)     // 2사이클이면
@@ -191,7 +191,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
-                    m2.transform.parent = monsterRepository.transform;
+                    m2.transform.parent = transform;
                     monsterCount++;
                 }
                 break;
@@ -202,7 +202,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
-                    m1.transform.parent = monsterRepository.transform;
+                    m1.transform.parent = transform;
                     monsterCount++;
                 }
                 else if (cycle == 1)     // 2사이클이면
@@ -211,7 +211,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
-                    m2.transform.parent = monsterRepository.transform;
+                    m2.transform.parent = transform;
                     monsterCount++;
                 }
                 break;
@@ -222,7 +222,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
-                    m1.transform.parent = monsterRepository.transform;
+                    m1.transform.parent = transform;
                     monsterCount++;
                 }
                 else if (cycle == 1)     // 2사이클이면
@@ -231,7 +231,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
-                    m2.transform.parent = monsterRepository.transform;
+                    m2.transform.parent = transform;
                     monsterCount++;
                 }
                 break;
@@ -242,7 +242,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster1 m1 = Instantiate(monster1, transform.position, Quaternion.identity);
                     m1.name = $"Monster1_{monsterCount}";
-                    m1.transform.parent = monsterRepository.transform;
+                    m1.transform.parent = transform;
                     monsterCount++;
                 }
                 else if (cycle == 1)     // 2사이클이면
@@ -251,7 +251,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 0.5f;
                     Monster2 m2 = Instantiate(monster2, transform.position, Quaternion.identity);
                     m2.name = $"Monster2_{monsterCount}";
-                    m2.transform.parent = monsterRepository.transform;
+                    m2.transform.parent = transform;
                     monsterCount++;
                 }
                 break;
@@ -261,7 +261,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 1.0f;
                     BossMonster1 b1 = Instantiate(bossMonster1, transform.position, Quaternion.identity);
                     b1.name = $"BossMonster1_{monsterCount}";
-                    b1.transform.parent = monsterRepository.transform;
+                    b1.transform.parent = transform;
                     monsterCount = 10;
                 }
                 else if (cycle == 1)
@@ -269,7 +269,7 @@ public class EnemySpawner : MonoBehaviour
                     spawnDelay = 1.0f;
                     BossMonster2 b2 = Instantiate(bossMonster2, transform.position, Quaternion.identity);
                     b2.name = $"BossMonster2_{monsterCount}";
-                    b2.transform.parent = monsterRepository.transform;
+                    b2.transform.parent = transform;
                     monsterCount = 10;
                 }
                 break;

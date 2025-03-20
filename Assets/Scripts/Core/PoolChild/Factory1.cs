@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
+/*/// <summary>
 /// 오브젝트 풀을 사용하는 오브젝트의 종류
 /// </summary>
 public enum PoolObjectType
@@ -22,9 +22,9 @@ public enum PoolObjectType
     Water_03,
     Water_04,
     Water_05,
-}
+}*/
 
-public class Factory : Singleton<Factory>
+public class Factory1 : Singleton<Factory1>
 {
     // 오브젝트 풀들
     Stone_01_Pool stone_01;     // 바위 공격_1

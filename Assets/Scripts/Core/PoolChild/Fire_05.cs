@@ -27,8 +27,9 @@ public class Fire_05 : RecycleObject
     {
         base.OnEnable();
 
-        player = GameManager.Instance.Player;
-        startPosition = player.transform.position;
+        //player = GameManager.Instance.Player;
+        //startPosition = player.transform.position;
+        startPosition = transform.position;
 
         // 현재 위치에서 1초 동안 아래로 이동할 목표 위치를 설정
         targetPosition = startPosition - new Vector3(0, moveSpeed, 0); // Y축으로 이동
